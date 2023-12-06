@@ -1,0 +1,138 @@
+(defpoll battery :interval "15s" "~/.config/eww/scripts/battery --bat")
+(defpoll battery_status :interval "1m" "~/.config/eww/scripts/battery --bat-st")
+(defpoll cal_day_name :interval "1m" "date +%A | tr '[:lower:]' '[:upper:]'")
+(defpoll cal_day_number :interval "1m" "date +%e")
+
+;; Battery block
+(defwindow battery
+  :monitor 0
+  :windowtype "normal"
+  :wm-ignore "true"
+  :stacking "bg"
+  :geometry (geometry 
+    :x "1232px"
+    :y "256px"
+    :width "192px"
+    :height "192px"
+    :anchor "top left"
+    :space-evenly "false"
+  )
+  (battery_widget)
+)
+
+(defwidget battery_widget []
+  (box
+    :class "bat_widget_layout"
+    :orientation "v"
+    (box
+      :class "bat_rings_container"
+      :vexpand "false"
+      :hexpand "false"
+      :valign "start"
+      :spacing "16"
+      :orientation "h"
+      (circular-progress
+        :value "${battery}"
+        :class "bat_ring_1"
+        :clockwise "true"
+        :start-at "75"
+        :thickness 6
+        (box
+          :class "bat_ring_icon_1"
+          :tooltip "battery on ${battery}%"
+          :style "background-image: url('/home/casey/.config/eww/icons/iphone.gen2.svg')"
+        )
+      )
+      (circular-progress
+        :value "20"
+        :class "bat_ring_2"
+        :clockwise "true"
+        :start-at "75"
+        :thickness 6
+        (box
+          :class "bat_ring_icon"
+          :tooltip "battery on 20%"
+          :style "background-image: url('/home/casey/.config/eww/icons/airpodspro.svg')"
+        )
+      )
+    )
+    (label
+      :class "battery_perc"
+      :text "${battery}%"
+      :valign "end"
+      :halign "start"
+    )
+  )
+)
+
+;; Calendar Widget
+(defwindow calendar
+  :monitor 0
+  :windowtype "normal"
+  :wm-ignore "true"
+  :stacking "bg"
+  :geometry (geometry 
+    :x "1024px"
+    :y "256px"
+    :width "192px"
+    :height "192px"
+    :anchor "top left"
+    :space-evenly "true"
+  )
+  (calendar_widget)
+)
+(defwidget calendar_widget []
+  (box
+    :class "calendar_layout"
+    :orientation "v"  
+    (box
+      :class "date_box"
+      :vexpand "false"
+      :hexpand "false"
+      :halign "start"
+      :valign "start"
+      :orientation "v"
+      (label
+        :class "date_day"
+        :text "${cal_day_name}"
+        :halign "start"
+      )
+      (label
+        :class "date_number"
+        :text "${cal_day_number}"
+        :halign "start"
+      )
+    )
+    (box
+      :class "agenda_box"
+      :vexpand "false"
+      :hexpand "false"
+      :halign "start"
+      :valign "start"
+      :orientation "v"
+    )
+  )
+)
+
+;; User
+(defwindow user
+  :monitor 0
+  :windowtype "desktop"
+  :wm-ignore "true"
+  :stacking "fg"
+  :geometry (geometry :x "16px"
+    :y "96px"
+    :width "128px"
+    :height "128px"
+    :anchor "top left")
+    (currentuser)
+)
+
+(defwidget currentuser []
+  (box :class "user_bg"
+  :orientation "h"
+  :vexpand "false"
+  :hexpand "false"
+  (label :text "hello")
+  )
+)

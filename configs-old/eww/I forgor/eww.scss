@@ -1,0 +1,21 @@
+* {
+    all: unset
+}
+
+.bar {
+    border-radius: 1em;
+    background-color: #292b30;
+}
+
+.clock_module {
+    color: #cfab4a;
+    margin-left: 4px;
+    margin-right: 4px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.clock_module button {
+    margin-left: 8px;
+    margin-right: 4px;
+}
