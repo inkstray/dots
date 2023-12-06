@@ -1,2 +1,4 @@
-# personal
-personal stuff i guess but you can feel free to look around.
+# dots
+- insert image here
+
+## this is essentially dotted-repo V2
