@@ -26,4 +26,7 @@ mkdir -p ~/archives/backups \
 	~/misc/unsorted \
 	~/projects \
  	~/share \
-	~/utils/software
+	~/utils/software \
+	~/.cache \
+	~/.local/state/bash \
+	~/.local/share
