@@ -1,5 +1,5 @@
 # wpgtk
-(cat $HOME/.config/wpg/sequences &)
+# (cat $HOME/.config/wpg/sequences &)
 
 # XDG vars
 export $XDG_CACHE_HOME="$HOME/.cache" \
