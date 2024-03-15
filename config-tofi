@@ -7,4 +7,5 @@ padding-top = 25%
 result-spacing = 8
 font = VictorMono Nerd Font Bold Italic
 font-size = 12
-background-color = #000D
+background-color = #000C
+drun-launch = true
